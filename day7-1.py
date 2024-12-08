@@ -5,21 +5,16 @@ true_vals = []
 
 for line in lines:
     test_val = line[0]
-    print(test_val)
-    line.pop(0)
-    add_vals = line.copy()
-    multiple_vals = []
-    for num in line:
-        if test_val%num== 0:
-            multiple_vals.append(num)
-            add_vals.remove(num)
+    for num in reversed(line[2:]):
+        if test_val % num == 0:
+            test_val = test_val // num
+        else:
+            test_val -= num
 
-    addition = sum(add_vals)
-    multiplication = 1
-    for n in multiple_vals:
-        multiplication = multiplication * n
+    if test_val == line[1]:
 
-    if (test_val - addition)/ multiplication == 1:
-        true_vals.append(test_val)
+        print(line)
+        print('yes')
+        true_vals.append(line[0])
 
 print(sum(true_vals))
