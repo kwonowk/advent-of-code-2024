@@ -12,3 +12,14 @@ for row in range(len(lines)):
             frequencies[lines[row][char]] = [[row,char]]
 
 frequencies
+mid_points = {}
+for signal in frequencies:
+    print(frequencies[signal])
+    for i in range(len(frequencies[signal])-1):
+        for j in range(i+1,len(frequencies[signal])):
+            print(i,j)
+            print(frequencies[signal][i][0])
+            print(frequencies[signal][j][0])
+            print(frequencies[signal][i][1])
+            print(frequencies[signal][j][1])
+            mid_points[signal].append([(frequencies[signal][i][0]+frequencies[signal][j][0])//2,(frequencies[signal][i][1]+frequencies[signal][j][1])//2])
